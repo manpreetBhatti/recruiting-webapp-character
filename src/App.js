@@ -6,8 +6,6 @@ function App() {
   const [chars, setChars] = useState([
     {
       name: "character1",
-      attribute: {},
-      skills: {},
     },
   ]);
   return (
@@ -17,7 +15,18 @@ function App() {
       </header>
       <section className="App-section">
         {/* <button onClick={() => saveData()}>Save Character</button> */}
-        <button>Add Character</button>
+        <button
+          onClick={() => {
+            setChars([
+              ...chars,
+              {
+                name: "character" + (chars.length + 1),
+              },
+            ]);
+          }}
+        >
+          Add Character
+        </button>
         {/* <div>
           Value:
           {num}
