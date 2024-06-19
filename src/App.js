@@ -1,22 +1,32 @@
-import { useState } from 'react';
-import './App.css';
-import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
-
+import { useState, useEffect } from "react";
+import "./App.css";
+import Characters from "./Characters.js";
 
 function App() {
-  const [num, setNum] = useState(0);
+  const [chars, setChars] = useState([
+    {
+      name: "character1",
+      attribute: {},
+      skills: {},
+    },
+  ]);
   return (
     <div className="App">
       <header className="App-header">
         <h1>React Coding Exercise</h1>
       </header>
       <section className="App-section">
-        <div>
+        {/* <button onClick={() => saveData()}>Save Character</button> */}
+        <button>Add Character</button>
+        {/* <div>
           Value:
           {num}
           <button>+</button>
           <button>-</button>
-        </div>
+        </div> */}
+        {chars.map((char) => {
+          return <Characters key={char.name} name={char.name} />;
+        })}
       </section>
     </div>
   );
